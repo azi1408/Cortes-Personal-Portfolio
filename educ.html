@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color:burlywood;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 10px 20px;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background: #333;
+                padding: 10px 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        .intro {
+            margin-top: 50px;
+        }
+        .intro img {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        header h1 {
+    font-size: 2.5rem;
+    color: #4CAF50;
+}
+
+/* Section for education background */
+.education {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.degree {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.degree h2 {
+    font-size: 1.8rem;
+    color: #4CAF50;
+}
+
+.degree p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #888;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h2>Educational Background</h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="proj.html">Projects</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+
+   <section class="education">
+        <div class="degree">
+            <h2>Degree: Bachelor of Science in Information and Technology</h2>
+            <p><strong>Institution:</strong> Cavite State University CCAT Campus</p>
+            <p><strong>Year:</strong> 2022 - Present</p>
+            <p><strong>Location:</strong> Rosario, Cavite</p>
+            <p><strong>Details:</strong> Currently taking Bachelor of Science in Information and Technology. Currently I'm in Third year level. </p>
+        </div>
+
+        <div class="degree">
+            <h2>TVL Information Communication and Technology</h2>
+            <p><strong>Institution:</strong> Samuel Christian College</p>
+            <p><strong>Year:</strong> 2020 - 2022</p>
+            <p><strong>Location:</strong> Navarro, Gen. Trias, Cavite</p>
+            <p><strong>Details:</strong> Graduated with honors and participated in various extracurricular activities.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact me at <a href="mailto:youremail@example.com">cortesarfel14@gmail.com</a></p>
+    </footer>
+    
+
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

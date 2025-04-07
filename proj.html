@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color:burlywood;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 10px 20px;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background: #333;
+                padding: 10px 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        .intro {
+            margin-top: 50px;
+        }
+        .intro img {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        h1 {
+            margin: 20px 0;
+            color: #333;
+        }
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .project {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .project:hover {
+            transform: scale(1.05);
+        }
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .project:hover .project-info {
+            opacity: 1;
+        }
+        .project-info h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .project-info p {
+            font-size: 14px;
+            margin: 5px 10px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            width: 60%;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .modal img {
+            width: 80%;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .close-btn {
+            position: fixed;
+            top: 10px;
+            right: 15px;
+            font-size: 40px;
+            cursor: pointer;
+            color: red;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h2>Personal Projects</h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="educ.html">Educational Background</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+    <h1>My Projects</h1>
+	<h3>Click each box to view more details.</h3>
+    
+    <div class="projects-container">
+        <div class="project" onclick="openModal('project1')">
+            <img src="project1main.jfif" alt="Project 1">
+            <div class="project-info">
+                <h3>Project One: Registration Process</h3>
+                <p>A c++ based registration form </p>
+            </div>
+        </div>
+
+        <div class="project" onclick="openModal('project2')">
+            <img src="det2.PNG" alt="Project 2">
+            <div class="project-info">
+                <h3>Project Two: Palindrome Checker</h3>
+                <p>A C++ based palindrome checker</p>
+            </div>
+        </div>
+
+        <div class="project" onclick="openModal('project3')">
+            <img src="det3.PNG" alt="Project 3">
+            <div class="project-info">
+                <h3>Project Three: Cashier System</h3>
+                <p>A C++ based cashier system.</p>
+            </div>
+        </div>
+
+        <div class="project" onclick="openModal('project4')">
+            <img src="det4.PNG" alt="Project 4">
+            <div class="project-info">
+                <h3>Project Four: Cashier System with discounts </h3>
+                <p>A c++ based more advanced cashier system</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 1 -->
+    <div id="project1-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('project1')">&times;</span>
+            <h2>Project One: Registration form c++</h2>
+            <p>Here you can register and view your application details after you register</p>
+            <img src="source1.jfif" alt="Project 1 Detail 1" style="width: 500px; height: 200px;">
+            <img src="det1.jfif" alt="Project 1 Detail 2" style="width: 500px; height: 200px;">
+        </div>
+    </div>
+
+    <!-- Modal for Project 2 -->
+    <div id="project2-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('project2')">&times;</span>
+            <h2>Project Two: Palindrome checker c++</h2>
+            <p>A program which tells you if the input is a palindrome or not.</p>
+            <img src="syntax2.PNG" alt="Project 2 Detail 1" style="width: 500px; height: 200px;">
+            <img src="det2.PNG" alt="Project 2 Detail 2" style="width: 500px; height: 200px;">
+        </div>
+    </div>
+
+    <!-- Modal for Project 3 -->
+    <div id="project3-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('project3')">&times;</span>
+            <h2>Project Three: Cashier System</h2>
+            <p>A simple cashier system made with C++</p>
+            <img src="syntax3.PNG" alt="Project 3 Detail 1" style="width: 500px; height: 200px;">
+            <img src="det3.PNG" alt="Project 3 Detail 2" style="width: 500px; height: 200px;">
+        </div>
+    </div>
+
+    <!-- Modal for Project 4 -->
+    <div id="project4-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('project4')">&times;</span>
+            <h2>Project Four: Cashier system in c++</h2>
+            <p>Another cashier system with different discount calculators</p>
+            <img src="syntax4.PNG" alt="Project 4 Detail 1" style="width: 500px; height: 200px;">
+            <img src="det4.PNG" alt="Project 4 Detail 2" style="width: 500px; height: 200px;">
+        </div>
+    </div>
+    
+
+
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        function openModal(projectId) {
+            document.getElementById(projectId + "-modal").style.display = "flex";
+        }
+
+        function closeModal(projectId) {
+            document.getElementById(projectId + "-modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

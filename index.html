@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color:burlywood;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 10px 20px;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background: #333;
+                padding: 10px 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        .intro{
+            margin-top: 50px;
+            
+        }
+        .hober:hover{
+            color: white;
+            font-weight: bold;
+            font-size:50px;
+        }
+        .hoberp:hover{
+            color: white;
+            font-weight: bold;
+            font-size:large;
+        }
+        .intro img {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h2>About Me</h2>
+        <ul class="nav-links">
+            
+            <li><a href="educ.html">Educational Background</a></li>
+            <li><a href="proj.html">Projects</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+
+    <div class="intro">
+        <h1 class="hober">Welcome to My Website</h1>
+        <p class="hoberp">Hi, I'm Arfel Cortes. A Student taking BS INFORMATION TECHNOLOGY.</p>
+        <p class="hoberp">From Naic, Cavite, Studying at CvSU CCAT Campus.</p>
+        <img src="profile.jfif" alt="My Picture">
+    </div>
+    
+
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
